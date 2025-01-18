@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ChatRT</string>
+    <string name="item_perfil">Perfil</string>
+    <string name="item_usuarios">Usuarios</string>
+    <string name="item_chats">Chats</string>
+
+    <string name="tv_Titulo">Titulo</string>
 </resources>
