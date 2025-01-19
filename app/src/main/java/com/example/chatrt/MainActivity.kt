@@ -1,5 +1,6 @@
 package com.example.chatrt
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,15 +10,21 @@ import com.example.chatrt.databinding.ActivityMainBinding
 import com.example.chatrt.fragments.FragmentChats
 import com.example.chatrt.fragments.FragmentPerfil
 import com.example.chatrt.fragments.FragmentUsers
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
+        if(firebaseAuth.currentUser == null){
+            goOptionsLogin()
+        }
 
         //fragmento por default
         watchFragmentPerfil()
@@ -46,6 +53,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun goOptionsLogin() {
+        startActivity(Intent(applicationContext, LoginOptionsActivity::class.java))
     }
 
     private fun watchFragmentPerfil(){
