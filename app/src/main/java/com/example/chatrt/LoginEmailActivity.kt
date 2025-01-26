@@ -6,19 +6,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.chatrt.databinding.ActivityLoginOptionsBinding
+import com.example.chatrt.databinding.ActivityLoginEmailBinding
 
-class LoginOptionsActivity : AppCompatActivity() {
+class LoginEmailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginOptionsBinding
+    private lateinit var binding : ActivityLoginEmailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityLoginOptionsBinding.inflate(layoutInflater)
+        binding = ActivityLoginEmailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.opcionEmail.setOnClickListener{
-            startActivity(Intent(applicationContext, LoginEmailActivity::class.java))
+
+        binding.tvRegistrar.setOnClickListener{
+            startActivity(Intent(applicationContext, RegisterEmailActivity::class.java))
         }
+
     }
 }
